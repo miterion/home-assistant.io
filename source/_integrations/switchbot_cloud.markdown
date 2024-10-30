@@ -18,8 +18,8 @@ ha_codeowners:
 ha_domain: switchbot_cloud
 ha_platforms:
   - climate
-  - sensor
   - lock
+  - sensor
   - switch
   - vacuum
 ha_config_flow: true
