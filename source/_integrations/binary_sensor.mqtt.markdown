@@ -96,6 +96,10 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
       required: false
@@ -132,6 +136,10 @@ encoding:
   default: "utf-8"
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity/#generic-properties) of the entity. When set, the entity category must be `diagnostic` for sensors.
+  required: false
+  type: string
+entity_picture:
+  description: "Picture URL for the entity."
   required: false
   type: string
 expire_after:
@@ -194,7 +202,7 @@ qos:
   type: integer
   default: 0
 state_topic:
-  description: The MQTT topic subscribed to receive sensor's state.
+  description: The MQTT topic subscribed to receive sensor's state. Valid states are `OFF` and `ON`. Custom `OFF` and `ON` values can be set with the `payload_off` and `payload_on` config options.
   required: true
   type: string
 unique_id:

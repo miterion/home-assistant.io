@@ -3,7 +3,7 @@ title: "Assist - custom sentences"
 related:
   - docs: /voice_control/aliases/
     title: Create aliases
-  - docs: /docs/scripts/#respond-to-a-conversation/
+  - docs: /docs/scripts/#respond-to-a-conversation
     title: Conversation response script action
   - docs: /docs/automation/trigger/#sentence-trigger
     title: Sentence triggers
@@ -148,7 +148,7 @@ As mentioned above, you can then use the `intent_script` integration to implemen
 # Example configuration.yaml
 intent_script:
   SetVolume:
-    action:
+    actions:
       service: "media_player.volume_set"
       data:
         entity_id: "{{ media_player }}"

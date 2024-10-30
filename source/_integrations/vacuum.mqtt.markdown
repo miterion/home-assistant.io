@@ -84,6 +84,10 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
       required: false
@@ -210,7 +214,6 @@ unique_id:
 mqtt:
   - vacuum:
       name: "MQTT Vacuum"
-      schema: state
       supported_features:
         - start
         - pause
@@ -223,7 +226,6 @@ mqtt:
         - fan_speed
         - send_command
       command_topic: "vacuum/command"
-      state_topic: "vacuum/state"
       set_fan_speed_topic: "vacuum/set_fan_speed"
       fan_speed_list:
         - min
@@ -268,21 +270,21 @@ If params are provided service sends JSON as payload with such structure:
 }
 ```
 
-Service trigger example:
+Action trigger example:
 
 ```yaml
 - alias: "Push command based on sensor"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: sensor.sensor
-    action:
-      service: vacuum.send_command
-      target:
-        entity_id: vacuum.vacuum_entity
-      data:
-        command: "custom_command"
-        params:
-          - key: value
+    actions:
+      - action: vacuum.send_command
+        target:
+          entity_id: vacuum.vacuum_entity
+        data:
+          command: "custom_command"
+          params:
+            - key: value
 ```
 
 MQTT topic: `vacuum/send_command`

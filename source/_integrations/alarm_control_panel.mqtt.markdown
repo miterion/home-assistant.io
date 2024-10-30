@@ -135,6 +135,10 @@ device:
       description: "The model of the device."
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: "The name of the device."
       required: false
@@ -167,6 +171,10 @@ encoding:
   default: "utf-8"
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+entity_picture:
+  description: "Picture URL for the entity."
   required: false
   type: string
 icon:
@@ -246,7 +254,7 @@ retain:
   type: boolean
   default: false
 state_topic:
-  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored.
+  description: "The MQTT topic subscribed to receive state updates. A \"None\" payload resets to an `unknown` state. An empty payload is ignored. Valid state payloads are: `armed_away`, `armed_custom_bypass`, `armed_home`, `armed_night`, `armed_vacation`, `arming`, `disarmed`, `disarming` `pending` and `triggered`."
   required: true
   type: string
 supported_features:
@@ -341,8 +349,7 @@ mqtt:
 
 {% endraw %}
 
-<div class='note warning'>
-
+{% caution %}
 When your MQTT connection is not secured, this will send your secret code over the network unprotected!
-
-</div>
+{% endcaution %}
+ 
