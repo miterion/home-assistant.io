@@ -43,10 +43,10 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - IR appliances exposed through the different hubs:
   - ON/OFF for all appliance types excepted "Others"
   - Air Conditioner
+- Lock
 - Meter
 - MeterPlus
 - Outdoor Meter
-- Lock
 - Vacuum K10+, K10+ pro, S1, S1 Plus
 
 ## Important considerations
